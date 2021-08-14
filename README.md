@@ -40,4 +40,4 @@
 ## Links
 
 - Solution URL: https://www.frontendmentor.io/solutions/order-summary-card-component-html-and-css-5e2-yygul
-- Demo URL: [See Demo](https://stoic-sammet-05e508.netlify.app/)
+- Demo URL: [See Demo](https://modest-noyce-9b650e.netlify.app/)
