@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="icon" href="devchallenges.png" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://devchallenges.io/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="app">
+      <!-- Offcanvas -->
+      <div class="offcanvas" tabindex="-1">
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            id="closeOffCanvasBtn"
+          >
+            <span class="material-icons"> close </span>
+          </button>
+        </div>
+        <div class="offcanvas-content">
+          <!-- form search location -->
+          <form class="form-search" id="formSearchLocation">
+            <div class="form-control">
+              <span class="material-icons"> search </span>
+              <input
+                type="search"
+                name="location"
+                placeholder="Search location by city"
+                autofocus
+                required
+              />
+            </div>
+            <button type="submit" class="btn-submit">Search</button>
+          </form>
+          <!-- feedback message -->
+          <p class="invalid-feedback"></p>
+          <!-- results search location -->
+          <ul class="location-list" id="locationList"></ul>
+        </div>
+      </div>
+
+      <!-- Weather overview -->
+      <div class="weather-overview">
+        <div class="loader"></div>
+        <div class="content">
+          <div class="action-buttons">
+            <button
+              type="button"
+              class="btn-open-search"
+              id="searchLocationBtn"
+              aria-label="Open Offcanvas"
+            >
+              Seach for places
+            </button>
+            <button
+              type="button"
+              class="btn-location"
+              aria-label="Nearest location"
+              id="currentLocationBtn"
+              title="Nearest location"
+            >
+              <span class="material-icons"> my_location </span>
+            </button>
+          </div>
+          <div class="weather-img">
+            <img
+              src="./src/images/LightCloud.svg"
+              alt="Shower"
+              id="currentWeatherImg"
+            />
+          </div>
+          <h2 class="temperatur" id="weatherTemp">15 <span>℃</span></h2>
+          <p class="weather-status" id="weatherStateName">Shower</p>
+          <span class="date" id="today">
+            Today
+            <time>Fri, 5 Jun</time>
+          </span>
+          <div class="location">
+            <span class="material-icons icon-location"> place </span>
+            <p class="city" id="location">Helsinki</p>
+          </div>
+        </div>
+      </div>
+      <!-- Weather main content -->
+      <div class="weather-main-content">
+        <div class="loader"></div>
+        <div class="container content">
+          <div class="action-buttons">
+            <button
+              type="button"
+              class="btn-temp active"
+              aria-label="Convert to Celsius"
+              title="Convert temperature to Celcius"
+              id="celsiusBtn"
+            >
+              ℃
+            </button>
+            <button
+              type="button"
+              class="btn-temp"
+              aria-label="Convert to Fahrenheit"
+              title="Convert temperature to Fahrenheit"
+              id="fahrenheitBtn"
+            >
+              ℉
+            </button>
+          </div>
+          <!-- Weather prediction - next days -->
+          <div class="weather-grid" id="forecastResults">
+            <div class="weather-box">
+              <time>Tomorrow</time>
+              <img src="./src/images/Snow.svg" alt="" />
+              <div class="degree">
+                <p class="max-degree">16°C</p>
+                <p class="min-degree">11°C</p>
+              </div>
+            </div>
+            <div class="weather-box">
+              <time>Sun, 7 Jun</time>
+              <img src="./src/images/Snow.svg" alt="" />
+              <div class="degree">
+                <p class="max-degree">16°C</p>
+                <p class="min-degree">11°C</p>
+              </div>
+            </div>
+            <div class="weather-box">
+              <time>Mon, 8 Jun</time>
+              <img src="./src/images/Thunderstorm.svg" alt="" />
+              <div class="degree">
+                <p class="max-degree">16°C</p>
+                <p class="min-degree">11°C</p>
+              </div>
+            </div>
+            <div class="weather-box">
+              <time>Tue, 9 Jun</time>
+              <img src="./src/images/LightCloud.svg" alt="" />
+              <div class="degree">
+                <p class="max-degree">16°C</p>
+                <p class="min-degree">11°C</p>
+              </div>
+            </div>
+            <div class="weather-box">
+              <time>Wed, 10 Jun</time>
+              <img src="./src/images/LightRain.svg" alt="" />
+              <div class="degree">
+                <p class="max-degree">16°C</p>
+                <p class="min-degree">11°C</p>
+              </div>
+            </div>
+          </div>
+          <!-- Weather Hightlights -->
+          <div class="weather-hightlights">
+            <h1>Today’s Hightlights</h1>
+            <div class="hightlights-grid">
+              <div class="hightlight-box wind-status">
+                <h5>Wind status</h5>
+                <p class="number" id="windSpeed">7 <span>mph</span></p>
+                <div class="wind-direction">
+                  <div class="img">
+                    <span class="material-icons icon"> near_me </span>
+                  </div>
+                  <span class="text" id="windDirectionTxt">WSW</span>
+                </div>
+              </div>
+              <div class="hightlight-box humadity">
+                <h5>Humadity</h5>
+                <p class="number" id="humadityPercentage">84 <span>%</span></p>
+                <div class="meter">
+                  <div class="percentage">
+                    <span>0</span>
+                    <span>50</span>
+                    <span>100</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill" id="progressWidth"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="hightlight-box visibility">
+                <h5>Visibility</h5>
+                <p class="number" id="visibility">6,4 <span>miles</span></p>
+              </div>
+              <div class="hightlight-box air-pressure">
+                <h5>Air Pressure</h5>
+                <p class="number" id="airPressure">998 <span>mb</span></p>
+              </div>
+            </div>
+            <!-- end -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/scripts/main.js" type="module"></script>
+  </body>
+</html>
