@@ -39,5 +39,5 @@
 
 ## Links
 
-- Solution URL: https://www.frontendmentor.io/solutions/order-summary-card-component-html-and-css-5e2-yygul
+- Solution URL: [See Solution](https://devchallenges.io/solutions/SIw7WGigrWhzgNbcDOKj/)
 - Demo URL: [See Demo](https://modest-noyce-9b650e.netlify.app/)
